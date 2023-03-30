@@ -65,6 +65,10 @@ object BuildTest : BuildType({
             scriptContent = "echo %test_number%"
         }
     }
+
+    requirements {
+        exists("teamcity.agent.name")
+    }
 })
 
 object Test2 : BuildType({
