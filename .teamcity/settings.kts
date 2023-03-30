@@ -1,6 +1,7 @@
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildSteps.python
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
+import jetbrains.buildServer.configs.kotlin.buildSteps.vstest
 
 /*
 The settings script is an entry point for defining a TeamCity
@@ -32,8 +33,8 @@ project {
     buildType(Test2)
 
     params {
-        param("User", "Jeff")
         password("Password", "credentialsJSON:1ce05aa2-eecd-43dc-87cc-9ae8a6db6bdb", label = "1", readOnly = true)
+        param("User", "Jeff")
     }
 }
 
@@ -63,6 +64,10 @@ object BuildTest : BuildType({
         }
         script {
             scriptContent = "echo %test_number%"
+        }
+        vstest {
+            name = "111"
+            includeTestFileNames = "1"
         }
     }
 
