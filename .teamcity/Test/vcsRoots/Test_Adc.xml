@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vcs-root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="4a9f8ac8-80ce-48e2-ab71-b5691f09f80f" type="jetbrains.git" xsi:noNamespaceSchemaLocation="https://www.jetbrains.com/teamcity/schemas/2021.1/project-config.xsd">
+  <name>adc</name>
+  <param name="agentCleanFilesPolicy" value="ALL_UNTRACKED" />
+  <param name="agentCleanPolicy" value="ON_BRANCH_CHANGE" />
+  <param name="authMethod" value="PASSWORD" />
+  <param name="branch" value="main" />
+  <param name="ignoreKnownHosts" value="true" />
+  <param name="oauthProviderId" value="tc-cloud-github-connection" />
+  <param name="secure:password" value="credentialsJSON:245ec034-3df2-4e2c-985b-d3894808cfd9" />
+  <param name="submoduleCheckout" value="CHECKOUT" />
+  <param name="tokenType" value="undefined" />
+  <param name="url" value="https://github.com/Tlt923/Git-Test" />
+  <param name="useAlternates" value="AUTO" />
+  <param name="username" value="Tlt923" />
+  <param name="usernameStyle" value="USERID" />
+</vcs-root>
+
