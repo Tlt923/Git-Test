@@ -70,10 +70,6 @@ object BuildTest : BuildType({
             includeTestFileNames = "1"
         }
     }
-
-    requirements {
-        equals("teamcity.agent.name", "Windows_test")
-    }
 })
 
 object Test2 : BuildType({
