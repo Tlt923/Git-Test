@@ -1,7 +1,6 @@
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildSteps.python
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
-import jetbrains.buildServer.configs.kotlin.buildSteps.vstest
 
 /*
 The settings script is an entry point for defining a TeamCity
@@ -64,10 +63,6 @@ object BuildTest : BuildType({
         }
         script {
             scriptContent = "echo %test_number%"
-        }
-        vstest {
-            name = "111"
-            includeTestFileNames = "1"
         }
     }
 })
