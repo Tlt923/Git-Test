@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<build-type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://www.jetbrains.com/teamcity/schemas/2021.1/project-config.xsd">
+  <name>Build_Test</name>
+  <description />
+  <settings>
+    <parameters>
+      <param name="test_number" value="0" />
+    </parameters>
+    <build-runners>
+      <runner id="RUNNER_1" name="Python_Test" type="python-runner">
+        <parameters>
+          <param name="command" value="file" />
+          <param name="coverageArgs" value="--omit=*lib*" />
+          <param name="envTool" value="virtualenv" />
+          <param name="installToolPackage" value="true" />
+          <param name="isCoverageEnabled" value="false" />
+          <param name="isTestReportingEnabled" value="true" />
+          <param name="poetryExecutable" value="poetry" />
+          <param name="pythonVersion" value="python3" />
+          <param name="scriptArguments" value="--source_p4_user %User% --source_p4_user2 %Password%" />
+          <param name="scriptFile" value="python_test.py" />
+          <param name="teamcity.build.workingDir" value="D:\Study\Version Control Tools\Git\test" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="virtualenvEnvName" value=".venv" />
+          <param name="virtualenvFile" value="requirements.txt" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_2" name="" type="simpleRunner">
+        <parameters>
+          <param name="script.content" value="echo %test_number%" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_3" name="" type="simpleRunner">
+        <parameters>
+          <param name="script.content" value="teamcity.exe setParameter /name:test_number /value:1 /build:Build_Test" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+      <runner id="RUNNER_4" name="" type="simpleRunner">
+        <parameters>
+          <param name="script.content" value="echo %test_number%" />
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+    </build-runners>
+    <vcs-settings />
+    <requirements>
+      <matches id="RQ_1" name="teamcity.agent.jvm.os.family" value="Windows" />
+      <equals id="RQ_2" name="teamcity.agent.name" value="Windows_test" />
+    </requirements>
+    <build-triggers />
+    <cleanup />
+  </settings>
+</build-type>
+
