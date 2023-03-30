@@ -67,7 +67,7 @@ object BuildTest : BuildType({
     }
 
     requirements {
-        exists("teamcity.agent.name")
+        equals("teamcity.agent.name", "Windows_test")
     }
 })
 
