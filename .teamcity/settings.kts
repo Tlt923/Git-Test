@@ -72,7 +72,6 @@ object BuildTest : BuildType({
     }
 
     requirements {
-        matches("teamcity.agent.jvm.os.family", "Windows")
         equals("teamcity.agent.name", "Windows_test")
     }
 })
