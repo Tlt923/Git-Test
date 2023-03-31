@@ -62,7 +62,7 @@ object BuildTest : BuildType({
             scriptContent = "setx teamcity.build.properties.test_number 1"
         }
         script {
-            scriptContent = "echo %test_number%"
+            scriptContent = "echo %teamcity.build.properties.test_number%"
         }
     }
 
