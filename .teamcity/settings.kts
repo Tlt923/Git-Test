@@ -59,7 +59,7 @@ object BuildTest : BuildType({
             scriptContent = "echo %test_number%"
         }
         script {
-            scriptContent = "teamcity.exe setParameter /name:test_number /value:1 /build:Build_Test"
+            scriptContent = "set test_number=10"
         }
         script {
             scriptContent = "echo %test_number%"
