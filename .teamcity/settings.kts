@@ -49,6 +49,8 @@ object BuildTest : BuildType({
 
     vcs {
         root(TestP4)
+
+        checkoutMode = CheckoutMode.ON_AGENT
     }
 
     steps {
