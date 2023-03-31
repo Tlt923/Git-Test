@@ -56,7 +56,7 @@ object BuildTest : BuildType({
             }
         }
         script {
-            scriptContent = """echo "##teamcity[message 'Your message here']""""
+            scriptContent = "echo ##teamcity[message 'Your message here']"
         }
         script {
             scriptContent = "setx %test_number% 1"
