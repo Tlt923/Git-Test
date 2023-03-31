@@ -1,6 +1,7 @@
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildSteps.python
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
+import jetbrains.buildServer.configs.kotlin.vcs.PerforceVcsRoot
 
 /*
 The settings script is an entry point for defining a TeamCity
@@ -28,6 +29,8 @@ version = "2022.10"
 
 project {
 
+    vcsRoot(TestP4)
+
     buildType(BuildTest)
     buildType(Test2)
 
@@ -42,6 +45,10 @@ object BuildTest : BuildType({
 
     params {
         param("test_number", "0")
+    }
+
+    vcs {
+        root(TestP4)
     }
 
     steps {
@@ -73,4 +80,21 @@ object BuildTest : BuildType({
 
 object Test2 : BuildType({
     name = "test2"
+})
+
+object TestP4 : PerforceVcsRoot({
+    name = "test_p4"
+    port = "10.215.128.118:1666"
+    mode = stream {
+        streamName = "//NetEaseQA/Dev"
+    }
+    userName = "Admin"
+    password = "credentialsJSON:893045cf-85fd-4f15-a07e-35163c46e5d4"
+    workspaceOptions = """
+        Options:        noallwrite clobber nocompress unlocked nomodtime rmdir
+        Host:           %teamcity.agent.hostname%
+        SubmitOptions:  revertunchanged
+        LineEnd:        local
+    """.trimIndent()
+    nonStreamWorkspace = true
 })
