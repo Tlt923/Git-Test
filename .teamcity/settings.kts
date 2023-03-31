@@ -59,7 +59,7 @@ object BuildTest : BuildType({
             scriptContent = "echo %test_number%"
         }
         script {
-            scriptContent = "setx test_number 1"
+            scriptContent = "setx %test_number% 1"
         }
         script {
             scriptContent = "echo %test_number%"
